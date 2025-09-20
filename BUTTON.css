@@ -1,0 +1,61 @@
+/* General body styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    background-color: #001f3f; /* dark-blue background */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Heading */
+h1 {
+    position: relative; /* Needed for pseudo-element positioning */
+    z-index: 1;         /* ensures the real text stays on top */
+    font-family: 'Orbitron', sans-serif; /* futuristic heading */
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    
+    /* Image text effect */
+    background-image: url("https://uploads.onecompiler.io/43ww9pgef/43x8wsev4/WhatsApp%20Image%202025-09-16%20at%2017.01.11_39c032ef.jpg");
+    background-size: cover;
+    background-position: center;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Contact items */
+.contact-item {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.contact-item span.icon {
+    font-size: 2rem;
+}
+
+/* Back button */
+.back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #ff0044;
+    color: #000c19;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    margin-top: 30px;
+    transition: background 0.3s;
+}
+
+.back-button:hover {
+    background: #cc0033;
+}
