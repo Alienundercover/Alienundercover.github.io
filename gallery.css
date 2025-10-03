@@ -1,0 +1,130 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Page */
+body {
+  font-family: 'Roboto', sans-serif;
+  background: #000;
+  color: #fff;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+header h1 {
+  font-family: 'Orbitron', sans-serif;
+  color: #ff0044;
+  text-align: center;
+  margin-bottom: 18px;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+}
+
+/* Wrapper for gallery + decorative cubes (relative positioning) */
+.gallery-wrapper {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+/* Gallery grid: responsive */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  align-items: stretch;
+}
+
+/* Images: each image fills its grid cell with cover cropping for uniform look */
+.gallery img {
+  width: 100%;
+  height: 260px;        /* desktop/tablet uniform height */
+  object-fit: cover;    /* crop without stretching */
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.6), 0 0 10px rgba(255, 0, 68, 0.12);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: block;
+}
+
+/* Hover effect */
+.gallery img:hover {
+  transform: scale(1.025);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.7), 0 0 18px rgba(255, 0, 68, 0.18);
+}
+
+/* Decorative rotated cubes (positioned "here and there") */
+.decorative-cube {
+  position: absolute;
+  width: 170px;
+  height: 170px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 12px;
+  border-radius: 12px;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  color: #000; /* dark text inside bright cube */
+  background: linear-gradient(135deg, rgba(255,4,68,0.95), rgba(255,120,140,0.95));
+  transform: rotate(-10deg);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+  z-index: 5;
+  pointer-events: none; /* so cubes don't block interacting with images */
+  line-height: 1.05;
+}
+
+/* Specific positions - feel free to tweak left/top/right/bottom values */
+.cube-a {
+  top: -10px;
+  left: -10px;
+  transform: rotate(-10deg) scale(0.98);
+}
+
+.cube-b {
+  bottom: -12px;
+  right: -12px;
+  transform: rotate(8deg) scale(1);
+}
+
+/* Make sure cubes don't overlap the gallery content too badly on wide screens:
+   add some inner padding to the wrapper so grid has breathing room. */
+.gallery-wrapper {
+  padding: 36px 20px;
+}
+
+/* Responsive tweaks for smaller screens */
+@media (max-width: 900px) {
+  .gallery img {
+    height: 200px;
+  }
+  .decorative-cube {
+    width: 140px;
+    height: 140px;
+    font-size: 0.9rem;
+  }
+  .cube-a { top: 4px; left: 4px; }
+  .cube-b { bottom: 4px; right: 4px; }
+}
+
+@media (max-width: 480px) {
+  .gallery {
+    grid-template-columns: 1fr 1fr; /* two columns on small phones */
+    gap: 10px;
+  }
+  .gallery img {
+    height: 160px;
+    border-radius: 8px;
+  }
+  .decorative-cube {
+    width: 110px;
+    height: 110px;
+    font-size: 0.78rem;
+    border-radius: 10px;
+  }
+  .cube-a { top: 8px; left: 8px; transform: rotate(-6deg); }
+  .cube-b { bottom: 8px; right: 8px; transform: rotate(6deg); }
+}
