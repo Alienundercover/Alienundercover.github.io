@@ -1,6 +1,6 @@
 # Plastic Fantastic
 
-A GitHub Pages project for learning and testing HTML and CSS.
+A GitHub Pages project for learning and testing HTML and CSS. And also offer info to local costumers
 
 ## Project Overview
 
